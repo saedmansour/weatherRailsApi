@@ -1,9 +1,9 @@
 require 'open_weather'
 
 class WeatherService
-
+  
   def get_city_and_country_weather(city, country_code)
-    city += "," + country_code unless country_code.empty? || country_code.nil?
+    city += "," + country_code unless  country_code.nil? || country_code.empty?
     result = OpenWeather::Current.city(city, OPTIONS)
     openWeatherNoResult?(result) ? nil : result
   end
